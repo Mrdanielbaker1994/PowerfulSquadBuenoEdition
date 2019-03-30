@@ -14,6 +14,7 @@
  * -----------------------------------------------------------------*/
 
 package phoenix.assigment1;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,10 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,9 +54,15 @@ public class MainActivity extends AppCompatActivity
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView imageView = findViewById(R.id.image_viewID);
+
+        /*ImageView imageView = findViewById(R.id.image_viewID);
         String url = "https://picsum.photos/200";
-        Picasso.with(this).load(url).into(imageView);
+        Picasso.with(this).load(url).into(imageView);*/
+
+        new Thread(new threadClass(this)).start();
+
+ /*       testingClass t = new testingClass(this);
+        t.test();*/
 
         /*This function will add all the current courses in the spinner*/
         processIntents();
@@ -208,3 +212,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 }
+
+
+
+
