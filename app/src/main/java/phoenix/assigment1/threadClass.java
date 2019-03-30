@@ -12,28 +12,25 @@ public class threadClass extends MainActivity implements Runnable {
     public threadClass(Context context)
     {
         this.context = context;
-        changePicture();
 
     }
 
         @Override
         public  void run() {
 
-            boolean onStart = true;
-            if(onStart == true)
-            {
 
-            }
-
-            for (int i = 0; i <= 10; i++) {
+            for (int i = 0; i <= 1000; i++) {
                 final int value = i;
                 try {
-                    Log.d("MainActivity", "Thread babyyyyyy");
-                    Thread.sleep(10000);
+                    Log.d("ThreadTest", "Thread babyyyyyy");
+                    Thread.sleep(1000);
+                    changePicture();
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
+                    Log.d("ThreadTest", "For this reason:" + e.toString());
 
+                }
 
                /* ImageView imageView = findViewById(R.id.image_viewID);
                 String url = "https://picsum.photos/200";
@@ -45,19 +42,19 @@ public class threadClass extends MainActivity implements Runnable {
 
         public void changePicture()
         {
-            Log.d("New", "Called");
+            Log.d("ThreadTest", "Called");
 
             try
             {
-                Log.d("Success", "Success");
+                Log.d("ThreadTest", "Success");
 
                 ImageView imageView = (ImageView)((MainActivity)context).findViewById(R.id.image_viewID);
-                String url = "https://picsum.photos/200";
+                String url = "https://loremflickr.com/200/200/bikini,girls,brazil/all";
                 Picasso.with(context).load(url).into(imageView);
             }
             catch (Exception e)
             {
-                Log.d("New", "For this reason:" + e.toString());
+                Log.d("ThreadTest", "For this reason:" + e.toString());
             }
         }
 

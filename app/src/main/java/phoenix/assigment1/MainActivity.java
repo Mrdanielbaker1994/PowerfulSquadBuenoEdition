@@ -22,7 +22,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,9 +58,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*ImageView imageView = findViewById(R.id.image_viewID);
-        String url = "https://picsum.photos/200";
-        Picasso.with(this).load(url).into(imageView);*/
+        //mainThreadChangePicture();
 
         new Thread(new threadClass(this)).start();
 
@@ -211,6 +212,40 @@ public class MainActivity extends AppCompatActivity
             Log.d("MainActivity", "Something went wrong when selecting a course to add an assignment on the MainActivity - " + e.toString());
         }
     }
+
+
+
+    public void mainThreadChangePicture()
+    {
+        try
+        {
+
+
+
+
+            //                ImageView imageView = (ImageView)((MainActivity)context).findViewById(R.id.image_viewID);
+//                String url = "https://picsum.photos/200";
+//          Picasso.with(context).load(url).into(imageView);
+
+
+
+            Log.d("ThreadTest", "Success ");
+            ImageView imageView = findViewById(R.id.image_viewID);
+            String url = "https://loremflickr.com/200/200/bikini,girls,brazil/all";
+            Picasso.with(this).load(url).into(imageView);
+
+        }
+        catch (Exception e)
+        {
+            Log.d("ThreadTest", "For this reason:" + e.toString());
+        }
+
+
+    }
+
+
+
+
 }
 
 
